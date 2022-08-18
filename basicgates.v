@@ -15,3 +15,9 @@ module not1(a,c);
     output wire c;
     assign c = ~a;
 endmodule
+
+module xor1(a,b,c);
+    input wire a,b;
+    output wire c;
+    assign c = a ^ b;
+endmodule
