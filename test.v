@@ -1,46 +1,18 @@
 module tb;
-    reg a;
-    reg b;
+    reg [3:0]a,b;
     reg c;
-    wire x,y;
-    fulladder f1(a,b,c,x,y);
+    wire [3:0]d,car;
+    bin_adder a1(a,b,c,d,car);
 
     initial begin
         $dumpfile("dump.vcd");
         $dumpvars(0,tb);
     end
     initial begin
-        $monitor(a,b,c,x,y);
-        a = 1'b0;
-        b = 1'b0;
-        c = 1'b0;
-        #10
-        a = 1'b0;
-        b = 1'b0;
-        c = 1'b1;
-        #10
-        a = 1'b0;
-        b = 1'b1;
-        c = 1'b0;
-        #10
-        a = 1'b0;
-        b = 1'b1;
-        c = 1'b1;
-        #10
-        a = 1'b1;
-        b = 1'b0;
-        c = 1'b0;
-        #10
-        a = 1'b1;
-        b = 1'b0;
-        c = 1'b1;
-        #10
-        a = 1'b1;
-        b = 1'b1;
-        c = 1'b0;
-        #10
-        a = 1'b1;
-        b = 1'b1;
-        c = 1'b1;
+        $monitor(car[3],d[3],d[2],d[1],d[0]);
+        a = 4'b1011;
+        b = 4'b0011;
+        c = 0;
+       
     end
 endmodule
