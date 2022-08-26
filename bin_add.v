@@ -1,3 +1,4 @@
+`include "adder.v"
 module bin_adder(a,b,c,d,car);
     input wire [3:0]a,b;
     input wire c;

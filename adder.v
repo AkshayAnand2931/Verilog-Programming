@@ -1,3 +1,4 @@
+`include "basicgates.v"
 module fulladder(a,b,cin,s,cy);
     input wire a,b,cin;
     output wire s,cy;
