@@ -6,12 +6,12 @@ module alu1(i0,i1,cin,op,y,cout);
     output wire y,cout;
     wire add1,and1,or1,gate1,mux1;
 
-    xor1 f1(i1,cin,gate1);
+    xor1 f1(i1,op[0],gate1);
     fulladder f2(i0,gate1,cin,add1,cout);
     and1 f3(i0,i1,and1);
     or1 f4(i0,i1,or1);
     mux2 f5(and1,or1,op[0],mux1);
-    mux2 f6(mux1,add1,op[1],y);
+    mux2 f6(add1,mux1,op[1],y);
 endmodule
 
 module alu16(i0,i1,op,y,cout);

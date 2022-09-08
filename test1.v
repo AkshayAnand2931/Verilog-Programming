@@ -1,29 +1,24 @@
 module tb();
-    reg i0,i1,cin;
+    reg [15:0]i0,i1;
     reg [1:0]op;
-    wire y;
+    wire [15:0]y;
     wire cout;
-    alu1 f1(i0,i1,cin,op,y,cout);
+    alu16 f1(i0,i1,op,y,cout);
 
     initial begin
         $dumpfile("dump.vcd");
         $dumpvars(0,tb);
     end
     initial begin
-        $monitor("%b %b %b %b %b %b",i0,i1,op,cin,cout,y);
-        i0 = 1'b1;
-        i1 = 1'b1;
+        $monitor("%b %b %b %b %b",i0,i1,op,cout,y);
+        i0 = 16'b1111000011110000;
+        i1 = 16'b0000111111110000;
         op = 2'b00;
-        cin = op[0];
         #10
         op = 2'b01;
-        cin = op[0];
         #10
         op = 2'b10;
-        cin = op[0];
         #10
         op = 2'b11;
-        cin = op[0];
-       
     end
 endmodule
